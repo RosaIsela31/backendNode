@@ -1,7 +1,9 @@
 const express = require('express');
+const bodyParser = require('body-parser');
 const router = express.Router(); 
 
-let app = express();  
+let app = express(); 
+app.use(bodyParser.json()); 
 app.use(router);
 
 // Haciendo un get 
@@ -9,10 +11,11 @@ router.get('/message', (req, res) => {
   res.send('Lista de mensajes');
 })
 
-router.post('/message', (req, res) => {
-  res.send('Mensaje añadido');
+router.delete('/message', (req, res) => {
+  console.log(req.body);
+  res.send('Mensaje añadido correctamente');
 })
-// app.use('/', (req, res) => {
+// app.use('/', (req, res) => { /
 //     res.send('Hola')
 // });
 
