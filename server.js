@@ -15,7 +15,7 @@ router.delete('/message', (req, res) => {
   console.log(req.body);
   res.send('Mensaje añadido correctamente');
 })
-// app.use('/', (req, res) => {
+// app.use('/', (req, res) => { /
 //     res.send('Hola')
 // });
 
