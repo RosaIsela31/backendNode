@@ -1,5 +1,8 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+
+const response = require('./network/response');
+
 const router = express.Router(); 
 
 let app = express(); 
@@ -8,7 +11,9 @@ app.use(router);
 
 // Haciendo un get 
 router.get('/message', (req, res) => {
-  res.send('Lista de mensajes');
+  console.log(req.headers);
+  // res.send('Lista de mensajes');
+  response.success(req, res, 'Lista de mensajes');
 })
 
 router.delete('/message', (req, res) => {
