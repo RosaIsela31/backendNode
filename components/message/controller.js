@@ -1,5 +1,7 @@
 // Este archivo va a contener toda la lógica
 // Los parametros que recibe addMessage son (quién la añade, que es lo que añade)
+const store = require('./store');
+
 function addMessage(user, message) {
   return new Promise((resolve, reject) => {
 
@@ -13,6 +15,7 @@ function addMessage(user, message) {
       message: message,
       date: new Date(),
     }
+    store.add(fullMessage);
     console.log(fullMessage);
     resolve(fullMessage);
   })
@@ -20,6 +23,15 @@ function addMessage(user, message) {
   
 };
 
+function getMessages() {
+  return new Promise((resolve, reject) => {
+    resolve(store.list())
+  })
+}
+
+
+
 module.exports = {
   addMessage,
+  getMessages
 };
