@@ -40,7 +40,7 @@ function updateMessage(id, message) {
 
     resolve(result);
   })
-}
+};
 
 
 
