@@ -29,7 +29,7 @@ async function updateText(id, message) {
   foundMessage.message = message;
   const newMessage = await foundMessage.save();
   return newMessage;
-}
+};
 
 module.exports = {
   add: addMessage,
