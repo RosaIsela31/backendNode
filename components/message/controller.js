@@ -19,13 +19,26 @@ function addMessage(user, message) {
     console.log(fullMessage);
     resolve(fullMessage);
   })
-
-  
 };
 
 function getMessages() {
   return new Promise((resolve, reject) => {
     resolve(store.list())
+  })
+};
+
+function updateMessage(id, message) {
+  return new Promise(async (resolve, reject) => {
+    console.log(id, message);
+    
+    if(!id || !message){
+      reject('Invalid data');
+      return false;
+    }
+
+    const result = await store.updateText(id, message)
+
+    resolve(result);
   })
 }
 
@@ -33,5 +46,6 @@ function getMessages() {
 
 module.exports = {
   addMessage,
-  getMessages
+  getMessages,
+  updateMessage,
 };
