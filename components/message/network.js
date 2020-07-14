@@ -4,7 +4,7 @@
 const express = require('express');
 const router = express.Router();
 const response = require('../../network/response');
-const controller = require('./controller')
+const controller = require('./controller');
 
 router.get('/', (req, res) => {
   const filterMessages = req.query.user || null;
